@@ -1,0 +1,199 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.sectionTitle {
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: var(--text-color);
+    font-family: 'Rubik', sans-serif;
+}
+
+.experienceGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch; /* Align items to stretch to the same height */
+    padding: 0 20px;
+}
+
+/* Consistent card layout with uniform size */
+.experienceCard {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    flex: 1 1 45%;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--card-border-color);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, border-radius 0.4s ease, background 0.4s ease;
+    transform-style: preserve-3d;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+    opacity: 0.95;
+    animation: fadeInAnimation 1s ease;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.experienceCard:hover {
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--btn-color);
+    border-radius: 20px;
+}
+
+/* Overlay effect on cards */
+.cardOverlay {
+    position: relative;
+    flex: 1;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease, border-radius 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Card content */
+.cardContent {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--btn-color);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.title:hover {
+    color: var(--hover-link-bg-color);
+}
+
+.company {
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.duration {
+    font-size: 16px;
+    color: var(--footer-text-color);
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.responsibilities {
+    margin: 20px 0;
+    list-style-type: disc;
+    padding-left: 25px;
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.responsibilityItem {
+    position: relative;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.responsibilityItem:hover {
+    transform: translateX(5px);
+    color: var(--btn-color);
+}
+
+/* Skills styling using glossy and shiny effects */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace; /* Matching font style for consistency */
+    color: #fff; /* White text color for contrast */
+    background: linear-gradient(135deg, #ff9ff3, #00d2d3); /* Glossy gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(255, 255, 255, 0.3); /* Outer and inner shadow for shiny effect */
+    transition: background 0.3s ease, transform 0.2s, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Use variations of glossy gradient for each skill */
+.skill:nth-child(3n+1) {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253); /* Glossy red gradient */
+}
+
+.skill:nth-child(3n+2) {
+    background: linear-gradient(135deg, #48dbfb, #1dd1a1); /* Glossy teal gradient */
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 -4px 6px rgba(255, 255, 255, 0.5); /* Enhanced shadow for glossy hover effect */
+}
+
+/* Unique shadowing and hover effect for depth */
+.experienceCard::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 50px;
+    height: 50px;
+    background: var(--btn-color);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.4;
+    transition: all 0.4s ease;
+}
+
+.experienceCard:hover::before {
+    transform: scale(1.8);
+    opacity: 0.6;
+}
+
+/* Fade-in animation for experience cards */
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .experienceCard {
+        width: 100%;
+        max-width: none;
+    }
+}

@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 61px;
+    z-index: 2;
+    margin: 0 10%;
+    width: 80%;  /* Make the container take most of the width for proper alignment */
+}
+
+.title {
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust gap for spacing between items */
+    position: relative; /* Allow flexibility for positioning elements */
+}
+
+.menuBtn {
+    display: none; /* Hide by default, only show for smaller screens */
+    cursor: pointer;
+}
+
+.menuItems {
+    display: flex;
+    gap: 47px;
+    list-style: none;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: row; /* Set to row to ensure title and menu button are on the same line */
+        align-items: center; /* Align items vertically */
+        justify-content: space-between; /* Make sure the title and menu button are at opposite ends */
+        width: 80%; /* Full width for mobile */
+    }
+
+    .menuBtn {
+        display: block; /* Show the menu button for small screens */
+        margin-right: 0; /* Adjust margin for proper alignment */
+        z-index: 3;
+    }
+
+    .menuItems {
+        display: none; /* Hide menu items by default on smaller screens */
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        border-radius: 10px;
+        background-color: var(--menu-card-bg);
+        padding: 24px 33px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        position: absolute; /* Overlay menu items over other content */
+        right: 10%; /* Position the menu from the right */
+        top: 70px; /* Adjust to match the header height */
+
+        p {
+            color: var(--menu-text-color);
+        }
+    }
+
+    .menuOpen {
+        display: flex; /* Show menu items when menu is open */
+        z-index: 2;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        border-radius: 10px;
+        background-color: var(--menu-card-bg);
+        padding: 24px 33px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        position: absolute; /* Overlay menu items over other content */
+        right: 10%; /* Align to the right */
+        top: 70px; /* Adjust to match the header height */
+
+        p {
+            color: var(--menu-text-color);
+        }
+    }
+}

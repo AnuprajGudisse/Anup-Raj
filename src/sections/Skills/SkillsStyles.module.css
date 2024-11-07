@@ -1,0 +1,102 @@
+:root {
+  /* Light theme colors */
+  --brick-color: #d2691e; /* Warm brick orange */
+  --brick-secondary-color: #e07b3e; /* Light variation for gradient */
+  --brick-border-color: #b85729; /* Border color for bricks */
+  --brick-shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+[data-theme='dark'] {
+  /* Dark theme colors */
+  --brick-color: #8b4513; /* Darker earthy tone for bricks */
+  --brick-secondary-color: #a0522d; /* Softer brown variation for gradient */
+  --brick-border-color: #5a2f1c; /* Darker color for brick borders */
+  --brick-shadow-color: rgba(0, 0, 0, 0.5); /* Darker shadow for more pronounced effect */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  margin-bottom: 100px;
+}
+
+/* Wall and row styles */
+.wall {
+  height: auto;
+}
+
+/* Each row of bricks */
+.row {
+  background-color: transparent; /* Remove concrete effect from outside edges */
+  padding: 5px 0; /* Only add vertical padding for concrete between rows */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: initial;
+  height: 80px;
+}
+
+/* Individual bricks with enhanced 3D effect */
+.brick {
+  margin: 0 5px; /* Add horizontal margin between bricks only */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, var(--brick-color), var(--brick-secondary-color)); /* Gradient for depth */
+  color: #fff; /* White text for contrast */
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: 300;
+  flex-grow: 2;
+  border-right: 2px solid var(--brick-border-color);
+  border-radius: 8px; /* Slightly rounded edges for realistic wear */
+  box-shadow: 0 4px 6px var(--brick-shadow-color), inset -2px -2px 5px rgba(255, 255, 255, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.15); /* Box shadows for 3D effect */
+  transform: scale(0.95);
+  opacity: 0;
+  animation: fadeInBrick 0.8s ease forwards;
+  animation-delay: calc(var(--animation-index) * 0.1s); /* Staggered delay for entrance effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInBrick {
+  to {
+      opacity: 1;
+      transform: scale(1); /* Pop to normal scale */
+  }
+}
+
+/* Remove border for the last brick in each row */
+.row .brick:last-child {
+  border-right: none;
+}
+
+/* For every even row, make the first and last brick smaller */
+.row:nth-child(even) > .brick:first-child,
+.row:nth-child(even) > .brick:last-child {
+  flex-grow: 1;
+}
+
+/* Hover effect for bricks */
+.brick:hover {
+  transform: scale(1.05) translateY(-3px); /* Lift gently for interaction */
+  box-shadow: 0 8px 15px var(--brick-shadow-color), inset -1px -1px 4px rgba(255, 255, 255, 0.15), inset 1px 1px 4px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  background: linear-gradient(135deg, var(--brick-secondary-color), var(--brick-color)); /* Reverse gradient on hover for a subtle dynamic effect */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .row {
+      height: 60px;
+  }
+  .brick {
+      font-size: 12px;
+  }
+}

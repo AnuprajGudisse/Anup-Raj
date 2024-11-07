@@ -1,0 +1,200 @@
+/* Overlay for pop-up */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg); /* Theme-based overlay background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Enhanced blur to emphasize the glass effect */
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Card container */
+.card {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15); /* Transparent background for glassy effect */
+    backdrop-filter: blur(20px) saturate(180%); /* Strong blur and saturation for glassmorphism */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Softer shadow for an elevated effect */
+    color: var(--popup-text-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid var(--popup-border-color); /* Theme-based border */
+    pointer-events: auto; /* Allow interaction within the pop-up */
+    z-index: 10; /* Ensure card is above overlay */
+}
+
+/* Close button */
+.closeButton {
+    position: absolute;
+    top: 10px;  /* Positioned closer to the top of the card */
+    right: 10px;  /* Positioned closer to the right side */
+    background: var(--btn-color); /* Use themed color for background */
+    backdrop-filter: blur(8px); /* Glassy blur effect to give a glassmorphic look */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border to separate button visually */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--btn-text-color); /* Contrast the text color against the background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 20; /* Bring the close button above the image and other elements */
+}
+
+.closeButton:hover {
+    background: rgba(255, 255, 255, 0.4); /* Lighten the background on hover */
+    transform: scale(1.1); /* Slight scaling for better interaction */
+}
+
+/* Card top section */
+.card__top {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--card-border-color);
+    z-index: 5; /* Ensure this section is below the close button */
+}
+
+/* Profile photo */
+.profile__photo {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 5; /* Make sure it's below the close button */
+}
+
+.profile__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card content */
+.card__content {
+    text-align: center;
+    padding: 5em 2.5em 3em;
+    color: var(--popup-text-color);
+}
+
+.card__content h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--btn-color); /* Match button color for consistency */
+}
+
+.card__content h3 {
+    font-weight: 500;
+    margin: 10px 0 20px;
+    font-size: 18px;
+    color: var(--btn-color);
+}
+
+.card__content p {
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--popup-text-color);
+}
+
+/* Details block */
+.detailsBlock {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.detailsBlock h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--btn-color);
+    margin-bottom: 5px;
+}
+
+.detailsBlock p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--popup-text-color);
+}
+
+/* Skills list */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.skills li {
+    list-style: none;
+    background: var(--skill-bg-color); /* Background color for skills based on theme */
+    color: var(--text-color);
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.skills li:hover {
+    transform: translateY(-3px);
+    background: var(--hover-skill-bg-color); /* Color change on hover for skills */
+}
+
+/* GitHub link button */
+.link {
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);}
+
+
+button{
+    background-color: var(--btn-color);
+    color: var(--btn-text-color);
+    border: none;
+    border-radius: 10px;
+    margin-top: 25px;
+    padding: 12px 25px;
+    width: 200px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: translate(2px);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+}
+
+.link:hover {
+    background: var(--hover-link-bg-color);
+    color: var(--background-color);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover for better visual effect */
+}
