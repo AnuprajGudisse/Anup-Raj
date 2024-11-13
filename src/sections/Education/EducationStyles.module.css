@@ -1,0 +1,159 @@
+:root {
+    --card-bg-light: rgba(255, 255, 255, 0.8); /* Light mode card background */
+    --card-bg-dark: rgba(34, 34, 34, 0.85); /* Dark mode card background */
+    --card-border-light: #b0b0b0; /* Light mode border */
+    --card-border-dark: #5a5a5a; /* Dark mode border */
+    --line-color-light: rgba(200, 200, 200, 0.3); /* Light mode notebook line color */
+    --line-color-dark: rgba(255, 255, 255, 0.1); /* Dark mode notebook line color */
+    --text-color-light: #222; /* Light mode text */
+    --text-color-dark: #f1f1f1; /* Dark mode text */
+    --highlight-color-light: var(--btn-color); /* Light mode highlight color */
+    --highlight-color-dark: #f39c12; /* Dark mode highlight color */
+}
+
+[data-theme='dark'] {
+    --card-bg: var(--card-bg-dark);
+    --card-border-color: var(--card-border-dark);
+    --line-color: var(--line-color-dark);
+    --text-color: var(--text-color-dark);
+    --highlight-color: var(--highlight-color-dark);
+}
+
+[data-theme='light'] {
+    --card-bg: var(--card-bg-light);
+    --card-border-color: var(--card-border-light);
+    --line-color: var(--line-color-light);
+    --text-color: var(--text-color-light);
+    --highlight-color: var(--highlight-color-light);
+}
+
+.container {
+    text-align: center;
+}
+
+.sectionTitle {
+    font-size: 36px;
+    color: var(--text-color);
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 40px;
+}
+
+/* Education grid styles with a more thematic, unstructured layout */
+.educationGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Make cards stack on top of each other */
+    gap: 50px;
+    padding: 0 20px;
+    justify-items: center;
+    position: relative;
+}
+
+
+/* Individual education card styles */
+.educationCard {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 25px;
+    width: 70%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px dashed var(--card-border-color);
+    transform-style: preserve-3d;
+    transform: rotate(calc(var(--tilt-angle))); /* Tilt for unstructured feel */
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.educationCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Tilt effect for cards */
+.tiltedCard {
+    --tilt-angle: calc(-5deg + 10deg * (var(--card-index) % 2)); /* Alternate tilt between -5 and +5 degrees */
+}
+
+/* Card content styles with doodle effect */
+.cardContent {
+    text-align: left;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+.institution {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+}
+
+.degree {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.dates {
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.details {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--text-color);
+}
+
+.detailItem {
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.detailItem:hover {
+    color: var(--highlight-color);
+}
+
+/* Paper lines and subtle doodle effect */
+.educationCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+    background-size: 100% 25px; /* Line spacing for notebook effect */
+    z-index: 0;
+}
+
+/* Animation for fade-in effect */
+.fadeIn {
+    animation: fadeInAnimation 1s ease forwards;
+    opacity: 0; /* Initially hidden for animation */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cardContent {
+        font-size: 14px;
+    }
+    .details {
+        padding-left: 15px;
+    }
+}

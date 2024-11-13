@@ -1,188 +1,81 @@
+:root {
+    /* Light and Dark Mode Variables */
+    --card-bg-light: #fefefe; /* Light grey to mimic high-quality office paper */
+    --card-bg-dark: #2d2d2d; /* Darker grey for contrast */
+    --card-border-light: #d4d4d4; /* Subtle border for paper look */
+    --card-border-dark: #4a4a4a; /* Subtle border for dark mode */
+    --highlight-color-light: #3b82f6; /* Blue for highlighting */
+    --highlight-color-dark: #f39c12; /* Golden color for dark mode highlight */
+    --text-color-light: #222; /* Light mode text */
+    --text-color-dark: #f1f1f1; /* Dark mode text */
+    --background-stripe-light: rgba(255, 255, 255, 0.85); /* Subtle background for cards */
+    --background-stripe-dark: rgba(0, 0, 0, 0.4); /* Subtle background for dark mode */
+}
+
+[data-theme='dark'] {
+    --card-bg: var(--card-bg-dark);
+    --card-border-color: var(--card-border-dark);
+    --text-color: var(--text-color-dark);
+    --highlight-color: var(--highlight-color-dark);
+    --background-stripe: var(--background-stripe-dark);
+}
+
+[data-theme='light'] {
+    --card-bg: var(--card-bg-light);
+    --card-border-color: var(--card-border-light);
+    --text-color: var(--text-color-light);
+    --highlight-color: var(--highlight-color-light);
+    --background-stripe: var(--background-stripe-light);
+}
+
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 50px 0;
     text-align: center;
 }
 
 .sectionTitle {
-    margin-bottom: 40px;
     font-size: 36px;
     color: var(--text-color);
     font-family: 'Rubik', sans-serif;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.experienceGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    align-items: stretch; /* Align items to stretch to the same height */
+/* Experience Grid */
+.experienceList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
     padding: 0 20px;
+    justify-items: center;
+    align-items: stretch;
+    position: relative;
 }
 
-/* Consistent card layout with uniform size */
+/* Office-style Experience Card */
 .experienceCard {
-    position: relative;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    flex: 1 1 45%;
-    max-width: 500px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid var(--card-border-color);
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, border-radius 0.4s ease, background 0.4s ease;
-    transform-style: preserve-3d;
-    background-size: 70%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-    opacity: 0.95;
-    animation: fadeInAnimation 1s ease;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-}
-
-.experienceCard:hover {
-    transform: rotateY(10deg) translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    border: 2px solid var(--btn-color);
-    border-radius: 20px;
-}
-
-/* Overlay effect on cards */
-.cardOverlay {
-    position: relative;
-    flex: 1;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: background 0.3s ease, border-radius 0.3s ease;
+    background: var(--card-bg);
+    border-radius: 12px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Card content */
-.cardContent {
-    text-align: left;
-    margin: 0;
-    padding: 0;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
-    z-index: 2;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.title {
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--btn-color);
-    margin-bottom: 15px;
-    transition: color 0.3s ease;
-}
-
-.title:hover {
-    color: var(--hover-link-bg-color);
-}
-
-.company {
-    font-size: 20px;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.duration {
-    font-size: 16px;
-    color: var(--footer-text-color);
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-.responsibilities {
-    margin: 20px 0;
-    list-style-type: disc;
-    padding-left: 25px;
-    color: var(--text-color);
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-.responsibilityItem {
-    position: relative;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.responsibilityItem:hover {
-    transform: translateX(5px);
-    color: var(--btn-color);
-}
-
-/* Skills styling using glossy and shiny effects */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.skill {
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Roboto Mono', monospace; /* Matching font style for consistency */
-    color: #fff; /* White text color for contrast */
-    background: linear-gradient(135deg, #ff9ff3, #00d2d3); /* Glossy gradient */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(255, 255, 255, 0.3); /* Outer and inner shadow for shiny effect */
-    transition: background 0.3s ease, transform 0.2s, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--card-border-color);
     cursor: pointer;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
 }
 
-/* Use variations of glossy gradient for each skill */
-.skill:nth-child(3n+1) {
-    background: linear-gradient(135deg, #ff6b6b, #ee5253); /* Glossy red gradient */
-}
-
-.skill:nth-child(3n+2) {
-    background: linear-gradient(135deg, #48dbfb, #1dd1a1); /* Glossy teal gradient */
-}
-
-.skill:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 -4px 6px rgba(255, 255, 255, 0.5); /* Enhanced shadow for glossy hover effect */
-}
-
-/* Unique shadowing and hover effect for depth */
-.experienceCard::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 50px;
-    height: 50px;
-    background: var(--btn-color);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.4;
-    transition: all 0.4s ease;
-}
-
-.experienceCard:hover::before {
-    transform: scale(1.8);
-    opacity: 0.6;
-}
-
-/* Fade-in animation for experience cards */
-@keyframes fadeInAnimation {
+/* Enhanced Fade-in Animation */
+@keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
@@ -190,10 +83,154 @@
     }
 }
 
-/* Media queries for responsiveness */
+.experienceCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--card-bg), var(--background-stripe));
+}
+
+/* Header with Office Document Tab Style */
+.cardHeader {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--highlight-color);
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 15px 80%, 0 100%);
+    position: relative;
+}
+
+.cardHeader .icon {
+    font-size: 26px;
+    margin-right: 12px;
+    color: #fff;
+}
+
+.headerContent {
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Responsibilities with Sticky Note Style */
+.responsibilities {
+    background: var(--background-stripe);
+    padding: 18px;
+    border-left: 5px solid var(--highlight-color);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    list-style-type: disc;
+    margin: 20px 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: 'Roboto Mono', monospace;
+    max-height: 160px; /* Limit height for readability */
+    overflow-y: auto; /* Enable scrolling if necessary */
+    position: relative;
+    z-index: 1;
+}
+
+.responsibilityItem {
+    margin-bottom: 10px;
+}
+
+.responsibilityItem:hover {
+    color: var(--highlight-color);
+}
+
+/* Skills Container with Sticky Note Feel */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill {
+    background: var(--highlight-color);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fff;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    background: darken(var(--highlight-color), 10%);
+}
+
+/* Paper Clip Style */
+.experienceCard::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 20px;
+    height: 70px;
+    border-left: 3px solid var(--highlight-color);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sticky Tape Style for Cards */
+.experienceCard::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 25px;
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(to right, var(--highlight-color) 50%, rgba(255, 255, 255, 0.4) 50%);
+    transform: rotate(-10deg);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .experienceList {
+        grid-template-columns: 1fr;
+    }
     .experienceCard {
-        width: 100%;
-        max-width: none;
+        width: calc(100% - 30px);
+        max-width: 100%;
+    }
+    .title {
+        font-size: 20px;
+    }
+    .skills {
+        gap: 8px;
+    }
+    .skill {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px;
+    }
+    .skills {
+        gap: 6px;
+    }
+    .skill {
+        padding: 5px 10px;
+        font-size: 12px;
     }
 }

@@ -45,6 +45,16 @@ function Navbar() {
             </a>
           </li>
           <li>
+            <a href='#experience'>
+              <p>Experience</p>
+            </a>
+          </li>
+          <li>
+            <a href='#education'>
+              <p>Education</p>
+            </a>
+          </li>
+          <li>
             <a href='#contact'>
               <p>Contact</p>
             </a>

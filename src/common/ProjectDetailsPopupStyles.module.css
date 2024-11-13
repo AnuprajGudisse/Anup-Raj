@@ -93,7 +93,7 @@
 .card__content {
     text-align: center;
     padding: 5em 2.5em 3em;
-    color: var(--popup-text-color);
+    color: var(--popup-text-color);   
 }
 
 .card__content h2 {
@@ -101,6 +101,7 @@
     font-size: 24px;
     margin-bottom: 10px;
     color: var(--btn-color); /* Match button color for consistency */
+    text-transform: none;
 }
 
 .card__content h3 {
