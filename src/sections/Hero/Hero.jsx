@@ -8,7 +8,7 @@ import githubLight from '../../assets/github-light.svg'
 import githubDark from '../../assets/github-dark.svg'
 import linkedinLight from '../../assets/linkedin-light.svg'
 import linkedinDark from '../../assets/linkedin-dark.svg'
-import CV from '../../assets/cv.pdf'
+import CV from '../../assets/Anup-Raj-SE-Resume.pdf'
 import { useTheme } from '../../common/ThemeContext';
 
 function Hero() {
@@ -40,7 +40,7 @@ function Hero() {
                 <img src={linkedinIcon} alt="Linkedin icon"/>
             </a>
         </span>
-        <p className={styles.description}>with the passion for developing modern react web apps for commerical businesses.</p>
+        <p className={styles.description}>with the passion to build practical tools and solutions, from efficient web apps to impactful data systems and machine learning models.</p>
         <a href={CV} download>
             <button className="Hover" >
                 Resume
