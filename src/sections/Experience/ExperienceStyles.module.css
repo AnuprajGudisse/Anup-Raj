@@ -18,6 +18,7 @@
     --text-color: var(--text-color-dark);
     --highlight-color: var(--highlight-color-dark);
     --background-stripe: var(--background-stripe-dark);
+    --skill-color: var(--text-color-dark);
 }
 
 [data-theme='light'] {
@@ -26,6 +27,7 @@
     --text-color: var(--text-color-light);
     --highlight-color: var(--highlight-color-light);
     --background-stripe: var(--background-stripe-light);
+    --skill-color: var(--text-color-light);
 }
 
 .container {
@@ -57,8 +59,8 @@
     background: var(--card-bg);
     border-radius: 12px;
     padding: 20px;
-    width: 90%;
-    max-width: 700px;
+    width: 100%;
+    max-width: 980px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -129,7 +131,7 @@
     color: var(--text-color);
     line-height: 1.6;
     font-family: 'Roboto Mono', monospace;
-    max-height: 160px; /* Limit height for readability */
+    max-height: 350px; /* Limit height for readability */
     overflow-y: auto; /* Enable scrolling if necessary */
     position: relative;
     z-index: 1;
@@ -170,6 +172,7 @@
 
 .skill:hover {
     transform: scale(1.05);
+    color:var(--skill-color) ;
     background: darken(var(--highlight-color), 10%);
 }
 

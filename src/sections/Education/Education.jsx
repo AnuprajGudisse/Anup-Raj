@@ -4,7 +4,7 @@ import styles from './EducationStyles.module.css';
 const educationData = [
   {
     institution: 'University of Illinois Chicago',
-    degree: 'Master of Science in Computer Science',
+    degree: 'Master of Science',
     fieldOfStudy: 'Computer Science',
     dates: 'Expected August 2025',
     details: [
@@ -16,10 +16,18 @@ const educationData = [
     institution: 'Gokaraju Rangaraju Institute of Engineering and Technology',
     degree: 'Bachelor of Engineering',
     fieldOfStudy: 'Information Technology',
-    dates: 'June 2019 – May 2023',
+    dates: 'Oct 2020 – May 2023',
     details: [
       'GPA: 8.15/10',
-      'Achievements: Member of the college tech club, led projects in web development and AI/ML.',
+    ],
+  },
+  {
+    institution: 'Government Polytechnic Masabtank',
+    degree: 'Diploma',
+    fieldOfStudy: 'Computer Engineering',
+    dates: 'July 2017 – May 2020',
+    details: [
+      'GPA: 8.15/10',
     ],
   },
 ];

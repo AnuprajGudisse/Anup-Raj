@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ExperienceStyles.module.css';
-import { FaBuilding, FaChalkboardTeacher, FaCameraRetro, FaLaptopCode } from 'react-icons/fa';
+import { FaBuilding, FaChalkboardTeacher, FaCameraRetro, FaLaptopCode, FaCode, FaRobot } from 'react-icons/fa';
 
 const experienceData = [
   {
@@ -9,11 +9,13 @@ const experienceData = [
     duration: 'May 2024 – Present',
     icon: <FaLaptopCode />,
     responsibilities: [
-      'Performed data analysis and visualization for bus maintenance operations.',
-      'Assisted in migrating the legacy registrar system to a Learning Management System.',
-      'Collaborated with stakeholders to gather requirements for data projects.',
+      'Developed a Training Information System web application using Django, streamlining training operations for CTA Bus Maintenance, resulting in a 70% improvement in planning efficiency and a 50% reduction in scheduling errors.',
+      'Designed and implemented an ETL pipeline with Python and Pandas, processing and cleaning 30+ years of historical data, which increased data accuracy by 35% and reduced manual data validation efforts by 40%.',
+      'Optimized PostgreSQL database models to manage over 100,000 training records, improving query performance by 50% and reducing data retrieval time from minutes to seconds.',
+      'Created interactive dashboards using Plotly, visualizing key metrics such as training completion rates, attendance, and participation trends, enabling data-driven decisions and improving resource allocation by 25%.',
+      'Built a user-centric web interface with Django, integrated seamlessly with PostgreSQL, reducing registrar workload by 60%, eliminating paper-based workflows, and enhancing productivity for 100+ users.'
     ],
-    skills: ['SQL', 'Python', 'Power BI', 'Data Analysis'],
+    skills: ['Django', 'Python', 'Pandas', 'PostgreSQL', 'Plotly', 'Data Analysis'],
   },
   {
     title: 'Assistant Video Producer',
@@ -26,6 +28,32 @@ const experienceData = [
     ],
     skills: ['Video Production', 'Premiere Pro', 'Team Collaboration'],
   },
+
+  {
+    title: 'Web Development Intern',
+    company: 'Internshala',
+    duration: 'Aug 2022 – Dec 2022',
+    icon: <FaCode />,
+    responsibilities: [
+      'Designed and implemented responsive user interfaces using modern JavaScript frameworks (React.js), HTML5, and CSS3, resulting in a 31% increase in user satisfaction and a 12% boost in audience engagement.',
+      'Developed and optimized object-oriented code in Node.js, ensuring 100% compliance with industry and company standards, which improved code maintainability and scalability by 25%.',
+      'Analyzed and applied multithreading, concurrency, and design patterns to enhance application performance, reducing processing time for high-traffic operations by 20%.'
+    ],
+    skills: ['React.js', 'HTML5', 'CSS3', 'Node.js', 'JavaScript', 'Multithreading', 'Concurrency', 'Design Patterns'],
+  },
+
+  {
+    title: 'AI-ML Virtual Internship',
+    company: 'AICTE',
+    duration: 'Mar 2022 – May 2022',
+    icon: <FaRobot />,
+    responsibilities: [
+      'Worked with a team of 4 interns to design, train, and optimize a Convolutional Neural Network (CNN) for real-time sign language image recognition using Python, TensorFlow, and OpenCV, achieving 86% accuracy.',
+      'Collaborated on data collection, preprocessing, and annotation to ensure high-quality training data for the model.'
+    ],
+    skills: ['Python', 'TensorFlow', 'OpenCV', 'CNN', 'Data Preprocessing', 'Team Collaboration'],
+  },
+
   {
     title: 'Student Ambassador',
     company: 'Intel',
@@ -37,17 +65,6 @@ const experienceData = [
       'Built relationships between Intel and university communities.',
     ],
     skills: ['Public Speaking', 'Event Planning', 'Technical Presentation'],
-  },
-  {
-    title: 'Computer Lab Assistant',
-    company: 'Hyderabad, India',
-    duration: 'Jun 2019 – Oct 2019',
-    icon: <FaBuilding />,
-    responsibilities: [
-      'Assisted students with lab assignments.',
-      'Provided technical support for lab equipment and troubleshooting.',
-    ],
-    skills: ['Technical Support', 'Customer Service'],
   },
 ];
 

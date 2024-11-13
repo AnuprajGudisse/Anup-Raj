@@ -1,3 +1,15 @@
+:root {
+    --header-dark: #f39c12; /* Golden color for dark mode highlight */
+    --header-light: #0987f2;
+}
+
+[data-theme='dark'] {
+    --header-color: var(--header-dark);
+}
+
+[data-theme='light'] {
+    --header-color: var(--header-light);
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -86,7 +98,7 @@
     margin: 5px 0;
     font-weight: bold;
     text-align: left;
-    color: var(--btn-color);
+    color: var(--header-color);
 }
 
 .cardContent p {
@@ -97,7 +109,7 @@
     max-height: 4.5em;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--text-color);
+    color: #222;
 }
 
 /* Responsive Styles */
