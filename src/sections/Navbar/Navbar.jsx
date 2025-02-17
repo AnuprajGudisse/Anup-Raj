@@ -35,16 +35,6 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href='#projects'>
-              <p>Projects</p>
-            </a>
-          </li>
-          <li>
-            <a href='#skills'>
-              <p>Skills</p>
-            </a>
-          </li>
-          <li>
             <a href='#experience'>
               <p>Experience</p>
             </a>
@@ -52,6 +42,16 @@ function Navbar() {
           <li>
             <a href='#education'>
               <p>Education</p>
+            </a>
+          </li>
+          <li>
+            <a href='#projects'>
+              <p>Projects</p>
+            </a>
+          </li>
+          <li>
+            <a href='#skills'>
+              <p>Skills</p>
             </a>
           </li>
           <li>
