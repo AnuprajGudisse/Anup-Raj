@@ -5,7 +5,7 @@ function Skills() {
   const { theme } = useTheme();
 
   const skills = [
-    "HTML", "CSS", "JavaScript", "Bootstrap","React.js","Node.js",
+    "HTML", "CSS", "JavaScript", "Bootstrap","React.js","Node.js", 
     "Python", "C", "Java", "Django","Flask",
     "SQL", "PostgreSQL", "DBeaver", "PGAdmin",
     "Power BI", "Tableau", "Pandas", "Matplotlib", "Plotly", "Git"
